@@ -1,9 +1,14 @@
+import { useState } from "react";
 import React from 'react';
 import { SignOut } from "phosphor-react-native";
 import { VStack, Heading, HStack, IconButton, useTheme, Text } from 'native-base';
+
 import Logo from '../assets/logo_secondary.svg'
+import { Filter } from '../components/Filter'
 
 export function Home() {
+  const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open')
+
   const {colors} = useTheme();
 
   return (
@@ -33,11 +38,23 @@ export function Home() {
                     3
                 </Text>
             </HStack>
-        </VStack>
 
-        <HStack>
-            
-        </HStack>
+            <HStack space={3} mb={8}>
+                <Filter
+                    type="open"
+                    title="Em andamento"
+                    onPress={() => setStatusSelected('open')}
+                    isActive={statusSelected === 'open'}
+                />
+                
+                <Filter
+                    type="closed"
+                    title="Finalizados"
+                    onPress={() => setStatusSelected('closed')}
+                    isActive={statusSelected === 'closed'}
+                />
+            </HStack>
+        </VStack>
     </VStack>
   );
 }
