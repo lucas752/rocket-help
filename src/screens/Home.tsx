@@ -1,6 +1,6 @@
 import React from 'react';
 import { SignOut } from "phosphor-react-native";
-import { VStack, Heading, HStack, IconButton, useTheme } from 'native-base';
+import { VStack, Heading, HStack, IconButton, useTheme, Text } from 'native-base';
 import Logo from '../assets/logo_secondary.svg'
 
 export function Home() {
@@ -22,6 +22,21 @@ export function Home() {
             <IconButton
                 icon={<SignOut size={26} color={colors.gray[300]}/>}
             />
+        </HStack>
+
+        <VStack flex={1} px={6}>
+            <HStack w="full" mt={6} mb={4} justifyContent={"space-between"} alignItems={"center"}>
+                <Heading color={"gray.100"}>
+                    Meus chamados
+                </Heading>
+                <Text color="gray.200">
+                    3
+                </Text>
+            </HStack>
+        </VStack>
+
+        <HStack>
+            
         </HStack>
     </VStack>
   );
